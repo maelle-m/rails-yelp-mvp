@@ -1,0 +1,18 @@
+  <div class="container mt-5">
+  <h1 class="text-center mb-4">Restaurant List</h1>
+  <ul class="list-group">
+    <% @restaurants.each do |restaurant| %>
+      <li class="list-group-item d-flex justify-content-between">
+        <%= restaurant.name %>
+        <span>
+           <%= link_to 'Details', restaurant_path(restaurant), class: 'btn btn-info btn-sm me-2' %>
+          <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-info btn-sm me-2' %>
+          <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+   <div class="d-flex justify-content-center">
+    <%= link_to "Create a Restaurant", new_restaurant_path, class: "btn btn-outline-dark align-items-center mt-5" %>
+  </div>
+</div>
